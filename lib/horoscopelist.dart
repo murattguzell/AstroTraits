@@ -1,4 +1,5 @@
 import 'package:astro_traits/data/string.dart';
+import 'package:astro_traits/horoscope_item.dart';
 import 'package:flutter/material.dart';
 
 import 'model/horoscope.dart';
@@ -6,7 +7,7 @@ import 'model/horoscope.dart';
 class Horoscopelist extends StatelessWidget {
   late List<Horoscope> tumBurclar;
 
-  HoroscopeList() {
+  Horoscopelist() {
     tumBurclar = veriKaynaginiHazirla();
   }
 
@@ -14,10 +15,21 @@ class Horoscopelist extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Burçlar Lisitesi"),
+        title: Text(
+          "Astro Traits",
+          style: TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
       ),
       body: Center(
-        child: Text("Burclar buraya gelecek"),
+        child: ListView.builder(
+          itemBuilder: (context, index) {
+            return HoroscopeItem(listelenecekBurc: tumBurclar[index]);
+          },
+          itemCount: tumBurclar.length,
+        ),
       ),
     );
   }
