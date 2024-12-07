@@ -1,3 +1,4 @@
+import 'package:astro_traits/horoscope_details.dart';
 import 'package:astro_traits/model/horoscope.dart';
 import 'package:flutter/material.dart';
 
@@ -16,11 +17,24 @@ class HoroscopeItem extends StatelessWidget {
         child: Padding(
           padding: EdgeInsets.all(8.0),
           child: ListTile(
-            leading: Image.asset("images/"+ listelenecekBurc.burcKucukResim,
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) =>
+                      HoroscopeDetails(selectedHoroscope: listelenecekBurc)));
+            },
+            leading: Image.asset(
+              "images/" + listelenecekBurc.burcKucukResim,
             ),
-            title: Text(listelenecekBurc.burcAdi,style: myTextStyle.headlineSmall),
-            subtitle: Text(listelenecekBurc.burcTarihi,style: myTextStyle.titleMedium,),
-            trailing: Icon(Icons.arrow_forward_ios,color: Colors.pink,),
+            title: Text(listelenecekBurc.burcAdi,
+                style: myTextStyle.headlineSmall),
+            subtitle: Text(
+              listelenecekBurc.burcTarihi,
+              style: myTextStyle.titleMedium,
+            ),
+            trailing: Icon(
+              Icons.arrow_forward_ios,
+              color: Colors.pink,
+            ),
           ),
         ),
       ),
