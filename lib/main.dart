@@ -1,4 +1,5 @@
 import 'package:astro_traits/horoscopelist.dart';
+import 'package:astro_traits/route_generator.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
          primarySwatch: Colors.pink,
           appBarTheme: AppBarTheme(color: Colors.pink)
         ),
-      home:Horoscopelist()
+      onGenerateRoute:  RouteGenerator.routeGenerator,
     );
   }
 }
